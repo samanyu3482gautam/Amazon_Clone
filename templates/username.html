@@ -1,0 +1,23 @@
+{% extends 'formBase.html' %}
+{% block title %}Username Amazon{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/login.css') }}">
+
+{% endblock %}
+{% block image %} <img src="{{url_for('static',filename='Logo.jpg')}}" alt="Logo" id="logo">{% endblock
+%}
+{% block content %}
+<h5><b>Enter your  new username (within 15 characters)</b></h5>
+<p>as username from your email is too long. </p>
+<form action="{{url_for('username')}}" method="POST">
+    <input type="text" required class="email-box" name="username" placeholder="Enter your username here.">
+    <button class="submit-box">Continue</button>
+   
+</form>
+<a href="{{url_for('signUp')}}"><button class="submit-box">Sign Up</button></a>
+<p id="agree">By agreeing you accept Amazon's <a href="#">conditions of use</a> and the <a href="#">privacy
+        policy.</a></p>
+<hr>
+
+{% endblock %}
+

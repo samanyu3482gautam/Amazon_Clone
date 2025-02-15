@@ -1,0 +1,186 @@
+{% extends 'pageBase.html' %}
+
+{% block link %}
+<link rel="stylesheet" href="{{url_for('static',filename='/css/cook.css')}}">
+{% endblock %}
+{% block title %}Stationary{% endblock %}
+{% block style %}
+<style>
+    .logo {
+        background-image: url("{{url_for('static',filename='images/amazon_logo.png')}}");
+        height: 50px;
+        width: 110px;
+        background-size: cover;
+        /* above property help image to get fully covered in its height and width*/
+    }
+
+    .boxExtra_img {
+        background-image: url("{{url_for('static',filename='more1.png')}}");
+        background-size: contain;
+    }
+
+    .box1_img {
+
+        background-image: url("{{url_for('static',filename='/stationary/stationary1.jpeg')}}");
+        background-size: cover;
+    }
+
+    .box2_img {
+
+        background-image: url("{{url_for('static',filename='/stationary/stationary2.jpeg')}}");
+        background-size: cover;
+    }
+
+    .box3_img {
+
+        background-image: url("{{url_for('static',filename='/stationary/stationary3.jpeg')}}");
+        background-size: cover;
+    }
+
+    .box4_img {
+
+        background-image: url("{{url_for('static',filename='/stationary/stationary4.jpeg')}}");
+        background-size: cover;
+    }
+
+    .box5_img {
+
+        background-image: url("{{url_for('static',filename='/stationary/stationary5.jpeg')}}");
+        background-size: cover;
+    }
+
+    .box6_img {
+
+        background-image: url("{{url_for('static',filename='/stationary/stationary6.jpeg')}}");
+        background-size: cover;
+    }
+
+    .box7_img {
+
+        background-image: url("{{url_for('static',filename='/stationary/stationary7.jpeg')}}");
+        background-size: cover;
+    }
+
+    .box8_img {
+
+        background-image: url("{{url_for('static',filename='/stationary/stationary8.jpeg')}}");
+        background-size: cover;
+    }
+
+    .hero_section {
+        background-image: url("{{url_for('static',filename='images/hero_image.jpg')}}");
+        height: 600px;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 350px;
+    }
+</style>
+{% endblock %}
+{%block content%}
+<!-- SHOPPING SECTION -->
+<div class="shop_section">
+    <!-- Product 1 -->
+    <div class="shop_section_box1 box">
+        <div class="box1_content">
+            <h2>Sticky notes</h2>
+            <div class="box1_img"></div>
+            <p class="product-description">Sticky notes3*3 in 8 pads</p>
+            <a class="box1_anchor">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="shop_section_box2 box">
+        <div class="box2_content">
+            <h2>notebook</h2>
+            <div class="box2_img"></div>
+            <p class="product-description">Five Star Spiral Notebook, 5 Subject, College Ruled Paper, Fights Ink Bleed
+            </p>
+            <a class="box2_anchor">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="shop_section_box3 box">
+        <div class="box3_content">
+            <h2>glue stick</h2>
+            <div class="box3_img"></div>
+            <p class="product-description">Elmer's Disappearing Purple School Glue Sticks, Washable, 7 Grams, 60 Count
+            </p>
+            <a class="box3_anchor">Shop Now</a>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="shop_section2">
+    <!-- Product 5 -->
+    <div class="shop_section_box5 box">
+        <div class="box5_content">
+            <h2>Scissors</h2>
+            <div class="box5_img"></div>
+            <p class="product-description">Scissors, iBayam 8" All Purpose Scissors Bulk 3-Pack, Ultra Sharp 2.5mm Thick.
+        </p>
+            <a class="box5_anchor">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="shop_section_box6 box">
+        <div class="box6_content">
+            <h2>Sharp Highlighter</h2>
+            <div class="box6_img"></div>
+            <p class="product-description">BIC Brite Liner Grip Pastel Highlighter, Chisel Tip, 12 Pack of
+                Pastel Highlighters, Note Taking and More
+            </p>
+            <a class="box6_anchor">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Product 7 -->
+    <div class="shop_section_box7 box">
+        <div class="box7_content">
+            <h2>correction tape</h2>
+            <div class="box7_img"></div>
+            <p class="product-description">BIC Wite-Out Brand EZ Correct Correction Tape, 39.3 Feet, 2-Count Pack of
+                white Correction</p>
+            <a class="box7_anchor">Shop Now</a>
+        </div>
+    </div>
+
+
+</div>
+<div class="shop_section">
+    <!-- Product 8 -->
+    <div class="shop_section_box8 box">
+        <div class="box8_content">
+            <h2>Gel pens
+            </h2>
+            <div class="box8_img"></div>
+            <p class="product-description">UIXJODO Gel Pens, 5 Pcs 0.5mm Black Ink Pens,
+                 Cute Office School Supplies Gifts for Women Men
+                (Morandi) </p>
+            <a class="box8_anchor">Shop Now</a>
+        </div>
+    </div>
+    <!-- Product 4 -->
+    <div class="shop_section_box4 box">
+        <div class="box4_content">
+            <h2>Note Pad</h2>
+            <div class="box4_img"></div>
+            <p class="product-description">Amazon Basics Narrow Ruled 5 x 8-Inch Lined Writing Note Pads, Multicolor
+            </p>
+            <a class="box4_anchor">Shop Now</a>
+        </div>
+    </div>
+    <div class="box extra">
+        <div class="boxExtra_img"></div>
+    </div>
+</div>
+</div>
+
+</div>
+{%endblock%}

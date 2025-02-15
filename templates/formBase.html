@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   {% block link %}{% endblock%}
+   <style>
+    .body{
+        background-image: url("{{url_for('static',filename='back2.png')}}");
+        background-size: cover;
+    }
+   </style>
+</head>
+
+<body class="body">
+    <div class="container-fluid outer-Container">
+        <div class="logo">
+            <!-- <img src="/myProject/static/loginPageAmazonLogo.png" alt="Logo" id="logo"> -->
+             {% block image %}{% endblock %}
+        </div>
+        <div class="container login-form">
+            {% block content %}
+            <h5><b>Sign Up</b></h5>
+            <p>Enter your email to Sign Up </p>
+            <form action="#" method="POST">
+                <input type="email" required class="email-box" name="email" placeholder="Enter your email here.">
+                <button class="submit-box">Continue</button>
+            </form>
+            <p id="agree">By agreeing you accept Amazon's <a href="#">conditions of use</a> and the <a href="#">privacy
+                    policy.</a></p>
+            <hr>
+            <p style="font-size: 12px;">Buying for work? <a href="#" style="font-size: 12px;">Shop on Amazon
+                    Business</a></p>
+            {% endblock %}
+
+        </div>
+
+    </div>
+    <div>{% block messages %}{% endblock %}</div>
+    <hr>
+    <div class="container last-box">
+        <div class="message"><a href="#" style="margin-right: 10px;"> Conditions of use </a> <a href="#"
+                style="margin-right: 10px;"> Privacy Policy </a>
+            <a href="#" style="margin-right: 10px;">Help-Contact-Us</a></div>
+    </div>
+</body>
+
+</html>

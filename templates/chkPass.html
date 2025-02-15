@@ -1,0 +1,19 @@
+{% extends 'formBase.html' %}
+{% block title %} Login Password {% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/login.css') }}">
+{% endblock %}
+{% block image %} <img src="{{url_for('static',filename='Logo.jpg')}}" alt="Logo" id="logo">{% endblock %}
+{% block content %}<h5><b>Enter Your Password</b></h5>
+<p>Enter your password to login </p>
+<form action="{{url_for('verify')}}" method="POST">
+    <input type="password" required class="email-box" name="password" placeholder="Enter your password here." >
+    <button class="submit-box">Verify</button>
+</form>
+<p id="agree">Click here if <a href="#">Forgot password</a><br>Click for  <a href="#">Delete account
+        </a></p>
+<hr>
+<p style="font-size: 12px;">Welcome nice to see you with us
+    <br>
+     <a href="#" style="font-size: 12px;">Check Amazon Prime Membership.
+        </a></p>{% endblock %}

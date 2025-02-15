@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/pageBase.css')}}">
+    {% block link %}{% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        .logo {
+            background-image: url("{{url_for('static',filename='/images/amazon_logo.png')}}");
+            height: 50px;
+            width: 110px;
+            background-size: cover;
+            /* above property help image to get fully covered in its height and width*/
+        }
+    </style>
+    {%block style%}{%endblock%}
+
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav_logo">
+                <div class="logo"></div>
+            </div>
+            <div class="nav_address">
+                <p id="delieverto">Deliver to</p>
+                <div class="address_icon">
+                    <i class="fa-solid fa-location-pin"></i>
+                    <p id="mumbai">Mumbai</p>
+                </div>
+            </div>
+            <div class="nav_search">
+                <select class="nav_select">
+                    <option>ALL</option>
+                </select>
+                <input type="text" placeholder="Search Amazon.in" id="input1">
+                <i class="fa-solid fa-magnifying-glass" id="searchicon"></i>
+            </div>
+
+
+            <div class="nav_account">
+                <p id="helloName">Hello --NAME--</p>
+                <p id="account">Account & Lists</p>
+            </div>
+            <div class="return">
+                <p id="return1">return</p>
+                <p id="return2">& order</p>
+            </div>
+            <div class="nav_cart"><i class="fa-solid fa-cart-shopping">
+                    <p id="cartpara">CART</p>
+                </i></div>
+        </div>
+
+        </div>
+
+
+    </header>
+    <nav class="nav1">
+        <a class="nav1_anchor"><i class="fa-solid fa-bars" id="menu_icon"></i><span id="anchor_span">All</span></a>
+        <div class="nav_div"><a class="div1_anchor1" id="div1_anchor1">Today's Deals</a><a class="div1_anchor2">Amazon's
+                mini TV</a>
+            <a class="div1_anchor3">Sell</a><a class="div1_anchor4">Gift Cards</a><a class="div1_anchor5">Gift Ideas</a>
+            <a class="div1_anchor6">Amazon Pay</a><a class="div1_anchor7">Buy Again</a><a class="div1_anchor8">Browsing
+                History</a>
+        </div>
+        <a class="div1_anchor9" href="{{url_for('logout')}}" style="text-decoration: none;">LOGOUT</a>
+        <a class="div1_anchor9" href="{{url_for('home')}}" style="text-decoration: none;">Home</a>
+        <a class="div1_anchor9">Amazon.in</a>
+    </nav>
+    {%block content%}{%endblock%}
+
+
+
+    <footer class="footer">
+        <div class="footer_panel1">Back to Top</div>
+        <div class="footer_panel2">
+            <ul class="panel2_ul1  ul">
+                <p id="ulp">Get to Know Us</p>
+                <li class="li">About Us</li>
+                <li>Careers</li>
+                <li>Press Releases</li>
+                <li>Amazon Science</li>
+            </ul>
+            <ul class="panel2_ul2  ul">
+                <p id="ulp">Connect with us</p>
+                <li class="li">Facebook</li>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+
+            </ul>
+            <ul class="panel2_ul3  ul">
+                <p id="ulp">Make money with us</p>
+                <li class="li">About Us</li>
+                <li>Careers</li>
+                <li>Press Releases</li>
+                <li>Amazon Science</li>
+            </ul>
+            <ul class="panel2_ul4 ul">
+                <p id="ulp">Get to Know Us</p>
+                <li class="li">Sell on Amazon</li>
+                <li>Sell under Amazon Accelerator</li>
+                <li>Protect and Build Your Brand</li>
+                <li>Amazon Global Selling</li>
+                <li>Supply to Amazon</li>
+                <li>Become an Affiliate</li>
+                <li>Fulfilment by Amazon</li>
+                <li>Advertise Your Products</li>
+                <li>Amazon Pay on Merchants</li>
+            </ul>
+        </div>
+        <hr>
+        <div class="footer_panel3">
+            <img src="{{url_for('static',filename='images/amazon_logo.png')}}" style="height: 65px; width: 95px;">
+            <i class="fa-solid fa-globe" id="logo"></i>
+            <select class="panel3_language" id="panel3_language">
+
+                <option>English</option>
+                <option>Hindi</option>
+                <option>Any other</option>
+            </select>
+            <select class="panel3_country" id="panel3_country">
+
+                <option>India</option>
+                <option>U.S.</option>
+                <option>Any other</option>
+            </select>
+        </div>
+    </footer> 
+
+</body>
+
+</html>

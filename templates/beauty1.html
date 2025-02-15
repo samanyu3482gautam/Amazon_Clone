@@ -1,0 +1,159 @@
+{% extends 'pageBase.html' %}
+
+{% block link %}
+<link rel="stylesheet" href="{{url_for('static',filename='/css/cook.css')}}">
+{% endblock %}
+{% block title %}Beauty{% endblock %}
+{% block style %} 
+<style>
+    .logo{
+background-image: url("{{url_for('static',filename='images/amazon_logo.png')}}");
+height: 50px;
+width: 110px;
+background-size: cover;
+/* above property help image to get fully covered in its height and width*/
+} 
+.box1_img{
+
+background-image: url("{{url_for('static',filename='beauty/image1.jpg')}}");
+}
+.box2_img{
+
+background-image: url("{{url_for('static',filename='beauty/image2.jpg')}}");
+}
+.box3_img{
+
+background-image: url("{{url_for('static',filename='beauty/image3.jpg')}}");
+}
+.box4_img{
+
+background-image: url("{{url_for('static',filename='beauty/image4.jpg')}}");
+}
+.box5_img{
+
+background-image: url("{{url_for('static',filename='beauty/image5.jpg')}}");
+}
+.box6_img{
+
+background-image: url("{{url_for('static',filename='beauty/image6.jpeg')}}");
+}
+.box7_img{
+
+background-image: url("{{url_for('static',filename='beauty/image7.jpg')}}");
+}
+.box8_img{
+
+background-image: url("{{url_for('static',filename='beauty/image8.jpg')}}");
+}
+.boxExtra_img{
+    background-image: url("{{url_for('static',filename='more1.png')}}");
+background-size: contain;
+}
+.hero_section{
+background-image: url("{{url_for('static',filename='images/hero_image.jpg')}}");
+height: 600px;
+background-size: cover;
+display: flex;
+justify-content: center;
+align-items: flex-end;       
+height: 350px;
+}   
+</style>
+{% endblock %}
+{%block content%}
+    <!-- SHOPPING SECTION -->
+    <div class="shop_section">
+        <!-- Product 1 -->
+        <div class="shop_section_box1 box">
+            <div class="box1_content">
+                <h2>Lira Clinical  Beauty Oil</h2>
+                <div class="box1_img"></div>
+                <p class="product-description">A luxurious beauty oil: brightens and revitalizes your skin.</p>
+                <a class="box1_anchor">Shop Now</a>
+            </div>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="shop_section_box2 box">
+            <div class="box2_content">
+                <h2>Beauty Blender</h2>
+                <div class="box2_img"></div>
+                <p class="product-description">Soft and durable makeup puff for smooth application of foundation and powders.</p>
+                <a class="box2_anchor">Shop Now</a>
+            </div>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="shop_section_box3 box">
+            <div class="box3_content">
+                <h2>Lip Glosses</h2>
+                <div class="box3_img"></div>
+                <p class="product-description">Nourishing lip balms that keep your lips soft and moisturized all day long.</p>
+                <a class="box3_anchor">Shop Now</a>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div class="shop_section2">
+        <!-- Product 5 -->
+        <div class="shop_section_box5 box">
+            <div class="box5_content">
+                <h2>Body Fresh</h2>
+                <div class="box5_img"></div>
+                <p class="product-description">Stay fresh all day with this body freshening spray, providing a cool and invigorating scent.</p>
+                <a class="box5_anchor">Shop Now</a>
+            </div>
+        </div>
+        
+        <!-- Product 6 -->
+        <div class="shop_section_box6 box">
+            <div class="box6_content">
+                <h2>Melanin Refresh</h2>
+                <div class="box6_img"></div>
+                <p class="product-description">Refresh your skin with a melanin-boosting lotion, perfect for brightening and moisturizing.</p>
+                <a class="box6_anchor">Shop Now</a>
+            </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="shop_section_box7 box">
+            <div class="box7_content">
+                <h2>Razor</h2>
+                <div class="box7_img"></div>
+                <p class="product-description">A high-quality razor designed for a close shave, with a comfortable handle for easy control.</p>
+                <a class="box7_anchor">Shop Now</a>
+            </div>
+        </div>
+
+        
+    </div>
+    <div class="shop_section">
+        <!-- Product 8 -->
+        <div class="shop_section_box8 box">
+            <div class="box8_content">
+                <h2>Under Eye Patches</h2>
+                <div class="box8_img"></div>
+                <p class="product-description">Revitalize your under-eye area with these luxurious 24K gold-infused eye patches.</p>
+                <a class="box8_anchor">Shop Now</a>
+            </div>
+        </div>
+        <!-- Product 4 -->
+        <div class="shop_section_box4 box">
+            <div class="box4_content">
+                <h2>Lipsticks</h2>
+                <div class="box4_img"></div>
+                <p class="product-description">Attractive lip shades for you!</p>
+                <a class="box4_anchor">Shop Now</a>
+            </div>
+        </div>
+        <div class="box extra">
+            <div class="boxExtra_img"></div>
+        </div>
+    </div>
+    
+       
+    
+</div>
+{%endblock%}

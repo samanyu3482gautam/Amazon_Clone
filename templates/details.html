@@ -1,0 +1,23 @@
+{% extends 'formBase.html' %}
+
+{% block title %}Amazon Details{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/details.css') }}">
+
+{% endblock %}
+{% block image %} <img src="{{url_for('static',filename='Logo.jpg')}}" alt="Logo" id="logo">{% endblock
+%}
+{% block content %}
+<h5><p> Welcome To AMAZON INDIA </p></h5>
+<h5><b>Enter Your Details Here</b></h5>
+
+<form action="{{url_for('details')}}" method="POST">
+    <input type="text" required class="name-box" name="name" placeholder="Enter your name here.">
+    <input type="text" required class="number-box" name="number" placeholder="Your Contact Details">
+    <input type="text" required class="address-box" name="address" placeholder="Your Address">
+    <input type="text" required class="pin-box" name="pin" placeholder="Pincode.">
+    <button class="submit-box">Continue</button>
+   
+</form>
+
+{% endblock %}

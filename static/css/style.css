@@ -1,0 +1,571 @@
+*{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    border: border-box;
+       /* BORDER BOX PROPERTY MEANS PADDING DIMENSIONS WILL BE COUNTED/INCLUDED IN ELEMENTS HEIGHT WIDTH ONLY  */
+}
+.navbar{
+    height: 60px;
+  background-color: #0F1111;
+  color: white;
+  display: flex;
+  align-items: center;
+justify-content: space-evenly;
+  
+}
+/* REASON FOR SETTING DISPLAY TO FLEX WAS AS I WANTED TO MAKE ALL FURTHER ELEMENTS INNSIDE THIS DIVE IN SAME LINE */
+/* ALSO GIVING ABOVE ALIGN ITEMS CENTER WAS THAT ALL ELEMENTS SHOULD ALING IN CENTER OF THE NAVBAR AS NOW THEY WILL BE IN THE CENTER OF THE CROSS AXIS */
+.nav_logo{
+    height: 50px;
+    width: 110px;
+    border: 1.5px solid transparent;
+
+}
+.nav_logo:hover{
+    border: 1.5px solid white;
+} 
+/* HERE I HAVE USED PSEUDOCLASS HOVER SO THAT WHEN WE PUT CURSOR ABOVE LOGO ITS BORDER TURNS WHITE  */
+
+
+.nav_address{
+    height:50px;
+    width:100px;
+    border: 1.5px solid  transparent;
+    display: flex;
+    justify-content: center;
+   flex-wrap: wrap;
+   align-items: center;
+    
+}
+/* AGAIN USING HOVER FOR WHITE BORDER */
+.nav_address:hover{
+    border: 1.5px solid white;
+}
+
+.fa-solid fa-location-pin{
+    color: white;
+}
+#delieverto{
+    font-size: 12px;
+    color: #CCCCCC;
+    margin-left: 15px;
+}
+#mumbai{
+    font-size: 14px;
+    color: #FFFFFF;
+    margin-left: 3px;
+}
+/* for same line flex */
+.address_icon{
+    display: flex;
+    align-items: center;
+}
+.nav_search{
+    height:35px;
+    width:600px;
+    display: flex;
+    align-items: center;
+    border: none;
+    margin-left: 10px;
+    font-size: 1rem;
+    border: 1.5px solid transparent;
+   
+  
+}
+.nav_search:hover{
+    border: 2px solid rgba(255, 166, 0, 0.904);
+}
+.nav_select{
+    height: 36px;
+   border-top-left-radius: 6px;
+   border-bottom-left-radius: 6px;
+    font-size: 12px;
+    color: #555555;
+    width: 50px;
+    text-align: center;
+    background-color: whitesmoke;
+    border: none;
+}
+#input1{
+    height: 33.5px;
+    width: 600px;
+    border: none;
+}
+#searchicon{
+    height: 36px;
+    background-color:rgba(255, 166, 0, 0.904);
+    width: 50px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    display: flex;
+    align-items: center;
+    border: none;
+    justify-content: center;
+    font-size: 1.15rem;
+}
+
+.nav_account{
+    display: flex;
+    width: 130px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1.5px solid transparent;
+}
+.nav_account:hover{
+    border: 1.5px solid white;
+}
+#helloName{
+    color: #FFFFFF;
+    font-size: 12px;
+}
+#account{
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 700;
+}
+.return{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1.5px solid transparent;
+    height: 50px;
+    width: 75px;
+}
+.return:hover{
+    border:1.5px solid white;
+}
+#return1{
+    font-size: 12px;
+    color: #FFFFFF;
+}
+#return2{
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+.nav_cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 59px;
+    border: 1.5px solid transparent;
+    font-size: 0.85rem;
+}
+/* BELOW i IN FORNT OF CLASS MEANS THAT ALL ICONS INSIDE NAV_CART  CAN USE THIS ALSO */
+.nav_cart i{
+    font-size: 30px;
+}
+.nav_cart:hover{
+    border: 1.5px solid white;
+}
+.fa-solid fa-cart-shopping{
+    height: 28px;
+    width: 41px;
+
+}
+#cartpara{
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+.nav1{
+    width: 100%;
+    height: 41px;
+    background-color: #222f3d;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.nav1_anchor{
+    height: 36px;
+    width: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1.5px solid transparent;
+}
+.nav1_anchor:hover{
+    border:1.5px solid white;
+}
+#anchor_span{
+    height: 12px;
+    width: 23px;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+#menu_icon{
+    height: 14px;
+    width: 17px;
+    color: #FFFFFF;
+}
+
+
+.div1_anchor1{
+    height: 36px;
+    width: 102px;
+    color: #FFFFFF;
+    font-size: 14px;
+    border: 1.5px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+.div1_anchor1:hover{
+    border: 1.5px solid white;  
+}
+.div1_anchor2{
+    width: 130px;
+    height: 36px;
+    border: 1.5px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 14px;
+
+}
+.div1_anchor2:hover{
+    border: 1.5px solid white;}
+
+.div1_anchor3{
+    width: 42px;
+    height: 36px;
+    border: 1.5px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.div1_anchor3:hover{
+    border: 1.5px solid white;}
+
+.div1_anchor4{
+    width: 81px;
+    height: 36px;
+    border: 1.5px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 14px;
+    }
+.div1_anchor4:hover{
+    border: 1.5px solid white;}
+
+.div1_anchor5{
+    width: 79px;
+    height: 36px;
+    border: 1.5px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 14px;
+        }
+ .div1_anchor5:hover{
+    border: 1.5px solid white;}
+
+
+.div1_anchor6{
+    width: 95px;
+    height: 36px;
+    border: 1.5px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 14px;
+    }
+.div1_anchor6:hover{
+    border: 1.5px solid white;}
+
+
+.div1_anchor7{
+        width: 81px;
+        height: 36px;
+        border: 1.5px solid transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #FFFFFF;
+        font-size: 14px;
+        }
+.div1_anchor7:hover{
+        border: 1.5px solid white;}
+
+        
+
+.div1_anchor8{
+            width: 140px;
+            height: 36px;
+            border: 1.5px solid transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FFFFFF;
+            font-size: 14px;
+            }
+.div1_anchor8:hover{
+            border: 1.5px solid white;}
+
+
+
+.div1_anchor9{
+                width: 155px;
+                height: 36px;
+                border: 1.5px solid transparent;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #FFFFFF;
+                font-weight: 700;
+                }
+.div1_anchor9:hover{
+                border: 1.5px solid white;}
+.nav_div{
+    width: 70%;
+    height: 39px;
+    display: flex;
+}
+
+/* HERO SECTION STARTED */
+        
+ 
+ /* ALIGN ITEMS FLEX END IS GIVEN SO THAT HERO MESSAGE IS ALIGNED PROPERLY  AT END OF PIC */
+ /* HERO SECTION IS GIVEN DISPLAY FLEX SO THAT WE CAN EDIT FURTHER ELEMENTS LIKE HERO MESSAGE AND OTHERS TO ALIGN THEM PROPERLY */
+ /* ABOVE BACKGROUND IMAGE WILL NOT APPEAR UTIL YOU GIVE A HEIGHT OR WIDTH OR BOTH TO IT */
+ .hero_message{
+    background-color: white;
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 25px;
+ }
+ /* MARGIN BOTTOM 25PX GIVEN TO ARRANGE IT IN PROPER WAY LITTLE ABOVE THE PIC */
+ .hero_message_para{
+    color: black;
+    font-size: 14px;
+ }
+ .hero_message_anchor{
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    color: #007185;
+ }
+
+ /* SHOP SECTION CSS STARTED */
+ .shop_section{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #e2e7e6;
+ }
+  /* THE ABOVE BACKGROUND COLOR IS CHOSEN SIMILAR TO THAT OF PIC INSERTED ABOVE */
+  .shop_section{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height:400px ;
+    align-items: center;
+  }
+ .box{
+    
+    height: 370px;
+    width: 23%;
+    background-color: white;
+    padding: 20px 0px 15px;
+
+    margin-top: 1rem;
+ }
+ .box1_content{
+    margin-left: 1rem;
+    margin-right: 1rem;
+ }
+ /* 1 rem approx = 16px  */
+ .box1_img{
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+ }
+ .box1_anchor{
+    color: #007185;
+ }
+
+ .box2_content{
+    margin-left: 1rem;
+    margin-right: 1rem;
+ }
+ /* 1 rem approx = 16px  */
+ .box2_img{
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+ }
+ .box2_anchor{
+    color: #007185;
+ }
+
+ .box3_content{
+    margin-left: 1rem;
+    margin-right: 1rem;
+ }
+ /* 1 rem approx = 16px  */
+ .box3_img{
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+ }
+ .box3_anchor{
+    color: #007185;
+ }
+ .box4_content{
+    margin-left: 1rem;
+    margin-right: 1rem;
+ }
+ /* 1 rem approx = 16px  */
+ .box4_img{
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+ }
+ .box4_anchor{
+    color: #007185;
+ }
+ .shop_section2{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #e2e7e6;
+ }
+ .box5_content{
+    margin-left: 1rem;
+    margin-right: 1rem;
+ }
+ /* 1 rem approx = 16px  */
+ .box5_img{
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+ }
+ .box5_anchor{
+    color: #007185;
+ }
+ .box6_content{
+    margin-left: 1rem;
+    margin-right: 1rem;
+ }
+ /* 1 rem approx = 16px  */
+ .box6_img{
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+ }
+ .box6_anchor{
+    color: #007185;}
+
+.box7_content{
+        margin-left: 1rem;
+        margin-right: 1rem;
+     }
+     /* 1 rem approx = 16px  */
+ .box7_img{
+        height: 300px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+     }
+.box7_anchor{
+        color: #007185;}
+
+.box8_content{
+            margin-left: 1rem;
+            margin-right: 1rem;
+         }
+         /* 1 rem approx = 16px  */
+.box8_img{
+            height: 300px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+         }
+.box8_anchor{
+            color: #007185;}
+
+/* FOOTER SECTION CSS */
+.footer{
+margin-top: 15px;
+background-color: #222f3d;
+color:white;
+font-size: 14px;
+text-decoration: none;
+}
+.footer_panel1{
+    background-color: #37475a;
+    
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}
+.footer_panel2{
+    display: flex;
+    justify-content: space-evenly;
+}
+.ul{
+    margin-top: 10px;
+    
+}
+.li{
+    margin-top: 10px;
+}
+#ulp{
+    font-weight: 700;
+}
+hr{
+    margin-top: 10px;
+    border: 1px solid #37475a;
+}
+.footer_panel3{
+    display: flex;
+    height: 68px;
+    justify-content: center;
+    align-items: center;
+}
+#logo{
+    margin-left: 20px;
+}
+#panel3_language{
+    margin-left: 5px;
+    color: white;
+    background-color: #37475a;
+    height: 30px;
+    border-radius: 5px;
+}
+#panel3_country{
+    margin-left: 5px;
+    color: white;
+    background-color: #37475a;
+    height: 30px;
+    border-radius: 5px;
+}

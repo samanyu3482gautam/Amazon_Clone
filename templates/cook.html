@@ -1,0 +1,140 @@
+{% extends 'pageBase.html' %}
+
+{% block link %}
+<link rel="stylesheet" href="{{url_for('static',filename='/css/cook.css')}}">
+{% endblock %}
+{% block title %}Cooking{% endblock %}
+{% block style %} 
+<style>
+    .logo{
+background-image: url("{{url_for('static',filename='images/amazon_logo.png')}}");
+height: 50px;
+width: 110px;
+background-size: cover;
+/* above property help image to get fully covered in its height and width*/
+} 
+.box1_img{
+
+background-image: url("{{url_for('static',filename='cook/cook1.jpg')}}");
+}
+.box2_img{
+
+background-image: url("{{url_for('static',filename='cook/cook2.jpg')}}");
+}
+.box3_img{
+
+background-image: url("{{url_for('static',filename='cook/cook3.jpg')}}");
+}
+.box4_img{
+
+background-image: url("{{url_for('static',filename='cook/cook4.jpg')}}");
+}
+.box5_img{
+
+background-image: url("{{url_for('static',filename='cook/cook5.jpg')}}");
+}
+.box6_img{
+
+background-image: url("{{url_for('static',filename='cook/cook6.jpg')}}");
+}
+.box7_img{
+
+background-image: url("{{url_for('static',filename='cook/cook7.jpg')}}");
+}
+.box8_img{
+
+background-image: url("{{url_for('static',filename='cook/cook8.jpg')}}");
+}
+.boxExtra_img{
+    background-image: url("{{url_for('static',filename='more1.png')}}");
+background-size: contain;
+}
+.hero_section{
+background-image: url("{{url_for('static',filename='images/hero_image.jpg')}}");
+height: 600px;
+background-size: cover;
+display: flex;
+justify-content: center;
+align-items: flex-end;       
+height: 350px;
+}   
+</style>
+{% endblock %}
+{%block content%}
+
+   <div class="shop_section">
+<div class="shop_section_box1 box">
+    <div class="box1_content">
+        <div class="box1_img" ></div>
+        <p class="product-description">Hawkins Contura 2L Aluminium Inner Lid Pressure Cooker (Silver)</p>
+        <a class="box1_anchor">Shop Now</a>
+    </div>
+</div>
+
+<div class="shop_section_box2 box">
+    <div class="box2_content">
+        <div class="box2_img" ></div>
+        <p class="product-description">12 Built-in Programs, Glutinous (White), Mixed, Brown, GABA Rice, 10 cups, Black</p>
+        <a class="box2_anchor">Shop Now</a>
+    </div>
+</div>
+
+<div class="shop_section_box3 box">
+    <div class="box3_content">
+        <div class="box3_img"></div>
+        <p class="product-description">One-Hand Locking, Induction Compatible, Glass Lid & Steamer Rack Included, Olla de Presion</p>
+        <a class="box3_anchor">Shop Now</a>
+    </div>
+</div>
+
+
+</div>
+<div class="shop_section2">
+<div class="shop_section_box5 box">
+    <div class="box5_content">
+        <div class="box5_img"></div>
+        <p class="product-description">Base for Fast Simultaneous Cooking - Auto Shutoff & Boil Dry Protection, Stainless Steel</p>
+        <a class="box5_anchor">Shop Now</a>
+    </div>
+</div>
+
+<div class="shop_section_box6 box">
+    <div class="box6_content">
+        <div class="box6_img" ></div>
+        <p class="product-description">Cuisinart MSC-600 3-In-1 Cook Central 6-Quart Multi-Cooker: Slow Cooker, Brown/Saute, Steamer, Silver</p>
+        <a class="box6_anchor">Shop Now</a>
+    </div>
+</div>
+
+<div class="shop_section_box7 box">
+    <div class="box7_content">
+        <div class="box7_img"></div>
+        <p class="product-description">Mueller Pro-Series 10-in-1, 8 Blade Vegetable Chopper, Onion Mincer, Cutter, Dicer, Egg Slicer with Container</p>
+        <a class="box7_anchor">Shop Now</a>
+    </div>
+</div>
+
+
+</div>
+<div class="shop_section3">
+    <div class="shop_section_box8 box">
+        <div class="box8_content">
+            <div class="box8_img"></div>
+            <p class="product-description">CHEFMAN Multifunctional Digital Air Fryer+ Rotisserie, Dehydrator, Convection Oven, 17 Touch Screen Presets Fry, Roast</p>
+            <a class="box8_anchor">Shop Now</a>
+        </div>
+    </div>
+    <div class="shop_section_box4 box">
+        <div class="box4_content">
+            <div class="box4_img"></div>
+            <p class="product-description">Dutch Oven, Steamer, Glass Lid Integrated Spoon, Nonstick, Oven Safe Pot to 500°F</p>
+            <a class="box4_anchor">Shop Now</a>
+        </div>
+    </div>
+    
+        <div class="box extra">
+            <div class="boxExtra_img"></div>
+        </div>
+    
+</div>
+{%endblock%}

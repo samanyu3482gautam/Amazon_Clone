@@ -1,0 +1,15 @@
+{% extends 'formBase.html' %}
+{% block title %}Logout Amazon{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/login.css') }}">
+
+{% endblock %}
+{% block image %} <img src="{{url_for('static',filename='aws.webp')}}" alt="Logo" id="logo">{% endblock
+%}
+{% block content %}
+<h4>You have been Logged Out.</h4>
+<h4>Click Below to login : </h4><br>
+<a href="{{url_for('login')}}"><button class="submit-box">LOGIN</button></a>
+
+
+{% endblock %}

@@ -1,0 +1,177 @@
+{% extends 'pageBase.html' %}
+
+{% block link %}
+<link rel="stylesheet" href="{{url_for('static',filename='/css/cook.css')}}">
+{% endblock %}
+{% block title %}Fashion{% endblock %}
+{% block style %}
+<style>
+    .logo {
+        background-image: url("{{url_for('static',filename='images/amazon_logo.png')}}");
+        height: 50px;
+        width: 110px;
+        background-size: cover;
+        /* above property help image to get fully covered in its height and width*/
+    }
+
+    .boxExtra_img {
+        background-image: url("{{url_for('static',filename='more1.png')}}");
+        background-size: contain;
+    }
+
+    .box1_img {
+
+        background-image: url("{{url_for('static',filename='/fashion/fashion1.jpg')}}");
+        background-size: cover;
+    }
+
+    .box2_img {
+
+        background-image: url("{{url_for('static',filename='/fashion/fashion2.jpg')}}");
+        background-size: cover;
+    }
+
+    .box3_img {
+
+        background-image: url("{{url_for('static',filename='/fashion/fashion3.jpg')}}");
+        background-size: cover;
+    }
+
+    .box4_img {
+
+        background-image: url("{{url_for('static',filename='/fashion/fashion4.jpg')}}");
+        background-size: cover;
+    }
+
+    .box5_img {
+
+        background-image: url("{{url_for('static',filename='/fashion/fashion5.jpg')}}");
+        background-size: cover;
+    }
+
+    .box6_img {
+
+        background-image: url("{{url_for('static',filename='/fashion/fashion6.jpg')}}");
+        background-size: cover;
+    }
+
+    .box7_img {
+
+        background-image: url("{{url_for('static',filename='/fashion/fashion7.jpg')}}");
+        background-size: cover;
+    }
+
+    .box8_img {
+
+        background-image: url("{{url_for('static',filename='/fashion/fashion8.jpg')}}");
+        background-size: cover;
+    }
+
+    .hero_section {
+        background-image: url("{{url_for('static',filename='images/hero_image.jpg')}}");
+        height: 600px;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 350px;
+    }
+</style>
+{% endblock %}
+{%block content%}
+<!-- SHOPPING SECTION -->
+<div class="shop_section">
+    <!-- Product 1 -->
+    <div class="shop_section_box1 box">
+        <div class="box1_content">
+            <h2>Tops</h2>
+            <div class="box1_img"></div>
+            <p class="product-description">Women's casual puff sleeves floral print peplum top</p>
+            <a class="box1_anchor">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="shop_section_box2 box">
+        <div class="box2_content">
+            <h2>Tshirts</h2>
+            <div class="box2_img"></div>
+            <p class="product-description"> Jawdrobe Cotton Blend Oversized Fit Round Neck T-Shirt for Women</p>
+            <a class="box2_anchor">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="shop_section_box3 box">
+        <div class="box3_content">
+            <h2>Denims</h2>
+            <div class="box3_img"></div>
+            <p class="product-description">Miss Chase Women's Regular Fit Mid Rise Light Weight Denim Skirt </p>
+            <a class="box3_anchor">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Product 4 -->
+
+</div>
+
+<div class="shop_section2">
+    <!-- Product 5 -->
+    <div class="shop_section_box5 box">
+        <div class="box5_content">
+            <h2>Co-ord Sets</h2>
+            <div class="box5_img"></div>
+            <p class="product-description">TADKEE Women's Solid Color Two-Piece Set | Casual Wear Co ord Set</p>
+            <a class="box5_anchor">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="shop_section_box6 box">
+        <div class="box6_content">
+            <h2>Hoodies</h2>
+            <div class="box6_img"></div>
+            <p class="product-description">ADRO Hoodies for Men | Mens Hoodies | Sweatshirt for Men | Hooded Hoodie</p>
+            <a class="box6_anchor">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Product 7 -->
+    <div class="shop_section_box7 box">
+        <div class="box7_content">
+            <h2>Track Pants</h2>
+            <div class="box7_img"></div>
+            <p class="product-description">dockstreet Women's/Unisex ONESOPEN Bottom |Stretchable Baggy Jogger Pants
+            </p>
+            </p>
+            <a class="box7_anchor">Shop Now</a>
+        </div>
+    </div>
+
+
+</div>
+<div class="shop_section">
+    <!-- Product 8 -->
+    <div class="shop_section_box8 box">
+        <div class="box8_content">
+            <h2>Jackets</h2>
+            <div class="box8_img"></div>
+            <p class="product-description">MiraMichi Full Sleeve Striped Casual Jacket, Ideal for Everyday Stylish
+                Outfits</p>
+            <a class="box8_anchor">Shop Now</a>
+        </div>
+    </div>
+
+    <div class="shop_section_box4 box">
+        <div class="box4_content">
+            <h2>Skirts</h2>
+            <div class="box4_img"></div>
+            <p class="product-description">UNITED COLORS OF BENETTON Women's Patterned Regular Fit Skirt</p>
+            <a class="box4_anchor">Shop Now</a>
+        </div>
+    </div>
+    <div class="box extra">
+        <div class="boxExtra_img"></div>
+    </div>
+</div>
+{%endblock%}

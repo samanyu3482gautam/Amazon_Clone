@@ -1,0 +1,142 @@
+{% extends 'pageBase.html' %}
+    {% block link %}
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/style.css')}}">
+    {% endblock %}
+    {% block title %}Amazon Home{% endblock %}
+
+    {% block style %} 
+    <style>
+        .logo{
+    background-image: url("{{url_for('static',filename='/images/amazon_logo.png')}}");
+    height: 50px;
+    width: 110px;
+    background-size: cover;
+    /* above property help image to get fully covered in its height and width*/
+} 
+.box1_img{
+
+background-image: url("{{url_for('static',filename='/images/box1_image.jpg')}}");
+}
+.box2_img{
+
+background-image: url("{{url_for('static',filename='/images/box2_image.jpg')}}");
+}
+.box3_img{
+
+background-image: url("{{url_for('static',filename='/images/box3_image.jpg')}}");
+}
+.box4_img{
+
+background-image: url("{{url_for('static',filename='/images/box4_image.jpg')}}");
+}
+.box5_img{
+
+background-image: url("{{url_for('static',filename='/images/box5_image.jpg')}}");
+}
+.box6_img{
+
+background-image: url("{{url_for('static',filename='/images/box6_image.jpg')}}");
+}
+.box7_img{
+
+background-image: url("{{url_for('static',filename='/images/box7_image.jpg')}}");
+}
+.box8_img{
+
+background-image: url("{{url_for('static',filename='/images/box8_image.jpg')}}");
+}
+.hero_section{
+    background-image: url("{{url_for('static',filename='/images/hero_image.jpg')}}");
+    height: 600px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;       
+    height: 350px;
+ }   
+    </style>
+    {% endblock %}
+  
+{% block content %}
+ <!-- HERO SECTION STARTED -->
+ <div class="hero_section">
+    <div class="hero_message"><p class="hero_message_para">You are on amazon.com. Here you can shop for millions of products
+       and enjoy.
+    </p><a class="hero_message_anchor" href="https://www.amazon.com/">click here for amazon.in</a></div>
+   </div>
+   <div class="shop_section">
+       <div class="shop_section_box1 box">
+           <div class="box1_content"><h2>Watches</h2>
+            <a href="{{url_for('watches')}}">
+               <div class="box1_img" >
+                   <!-- remember one thing here in style tag double coutes will comes outside and single coutes will come in the inner side -->
+               </div>
+               <a class="box1_anchor">See more</a></div></a>
+       </div>
+       <div class="shop_section_box2 box">
+           <div class="box2_content"><h2>Diwali Sale</h2>
+            <a href="{{url_for('diwali')}}">
+        
+               <div class="box2_img">
+                               </div>
+               <a class="box2_anchor">See more</a></div>
+            </a>
+       </div>
+       <div class="shop_section_box3 box">
+        <a href="{{url_for('cook')}}" style="color: black; text-decoration: none;">
+           <div class="box3_content"><h2>Cook Ware</h2>
+               <div class="box3_img">
+                 
+               </div>
+               <a class="box3_anchor">See more</a></div>
+               </a>
+       </div>
+       <div class="shop_section_box4 box">
+           <div class="box4_content"><h2>New Gadets</h2>
+            <a href="{{url_for('electronics')}}">
+               <div class="box4_img">
+                   
+               </div>
+               <a class="box4_anchor">See more</a></div>
+               </div>
+       </div>
+   </div>
+   <div class="shop_section2">
+       <div class="shop_section_box5 box">
+           <div class="box5_content"><h2>Make Up</h2>
+            <a href="{{url_for('beauty')}}">
+               <div class="box5_img">
+                   <!-- remember one thing here in style tag double coutes will comes outside and single coutes will come in the inner side -->
+               </div>
+               <a class="box5_anchor">See more</a></div>
+            </a>
+       </div>
+       <div class="shop_section_box6 box">
+           <div class="box6_content"><h2>Shoes</h2>
+            <a href="{{url_for('shoes')}}">
+               <div class="box6_img">
+                               </div>
+               <a class="box6_anchor">See more</a></div>
+                            </a>
+       </div>
+       <div class="shop_section_box7 box">
+           <div class="box7_content"><h2>Stationary</h2>
+            <a href="{{url_for('stationary')}}">
+               <div class="box7_img" >
+                 
+               </div>
+               <a class="box7_anchor">See more</a></div>
+            </a>
+       </div>
+       <div class="shop_section_box8 box">
+           <div class="box8_content"><h2>Fashion</h2>
+            <a href="{{url_for('fashion')}}">
+               <div class="box8_img">
+                   
+               </div>
+               <a class="box8_anchor">See more</a></div>
+            </a>
+       </div>
+   </div>
+{% endblock %}
+

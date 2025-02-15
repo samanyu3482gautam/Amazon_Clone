@@ -1,0 +1,154 @@
+{% extends 'pageBase.html' %}
+
+{% block link %}
+<link rel="stylesheet" href="{{url_for('static',filename='/css/cook.css')}}">
+{% endblock %}
+{% block title %}Electronics{% endblock %}
+{% block style %} 
+<style>
+    .logo{
+background-image: url("{{url_for('static',filename='images/amazon_logo.png')}}");
+height: 50px;
+width: 110px;
+background-size: cover;
+/* above property help image to get fully covered in its height and width*/
+} 
+.boxExtra_img{
+    background-image: url("{{url_for('static',filename='more1.png')}}");
+background-size: contain;
+}
+.box1_img{
+
+background-image: url("{{url_for('static',filename='/phone/mobile1.jpg')}}");
+}
+.box2_img{
+
+background-image: url("{{url_for('static',filename='/phone/phone2.jpg')}}");
+}
+.box3_img{
+
+background-image: url("{{url_for('static',filename='/phone/phone3.jpg')}}");
+}
+.box4_img{
+
+background-image: url("{{url_for('static',filename='/phone/phone4.jpg')}}");
+}
+.box5_img{
+
+background-image: url("{{url_for('static',filename='/phone/phone5.jpg')}}");
+}
+.box6_img{
+
+background-image: url("{{url_for('static',filename='/phone/phone6.jpg')}}");
+}
+.box7_img{
+
+background-image: url("{{url_for('static',filename='/phone/phone7.jpg')}}");
+}
+.box8_img{
+
+background-image: url("{{url_for('static',filename='/phone/phone8.jpg')}}");
+}
+.hero_section{
+background-image: url("{{url_for('static',filename='images/hero_image.jpg')}}");
+height: 600px;
+background-size: cover;
+display: flex;
+justify-content: center;
+align-items: flex-end;       
+height: 350px;
+}   
+</style>
+{% endblock %}
+{%block content%}
+
+<div class="shop_section">
+    <!-- Product 1 -->
+    <div class="shop_section_box1 box">
+        <div class="box1_content">
+            
+            <div class="box1_img"></div>
+            <p class="product-description">
+                OnePlus 12,16GB RAM+512GB,Dual-SIM,Unlocked Android Smartphone </p>
+            <a class="box1_anchor">Shop Now</a>
+        </div>
+    </div>
+    
+    <!-- Product 2 -->
+    <div class="shop_section_box2 box">
+        <div class="box2_content">
+            
+            <div class="box2_img"></div>
+            <p class="product-description">Samsung Galaxy S24 Ultra Cell Phone, 256GB AI Smartphone, Unlocked Android  </p>
+            <a class="box2_anchor">Shop Now</a>
+        </div>
+    </div>
+    
+    <!-- Product 3 -->
+    <div class="shop_section_box3 box">
+        <div class="box3_content">
+            <div class="box3_img"></div>
+            <p class="product-description">SAMSUNG Galaxy Buds 3 Pro AI True Wireless Bluetooth Earbuds, Noise Cancelling, </p>
+            <a class="box3_anchor">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Product 4 -->
+ 
+</div>
+
+<div class="shop_section2">
+    <!-- Product 5 -->
+    <div class="shop_section_box5 box">
+        <div class="box5_content">
+            
+            <div class="box5_img"></div>
+            <p class="product-description">Samsung Galaxy SmartTag2, Bluetooth Tracker, Smart Tag GPS Locator Tracking Device,   </p>
+            <a class="box5_anchor">Shop Now</a>
+        </div>
+    </div>
+    
+    <!-- Product 6 -->
+    <div class="shop_section_box6 box">
+        <div class="box6_content">
+            
+            <div class="box6_img"></div>
+            <p class="product-descriptio">Car Carplay Cable for  iPhone16/15Pro Max ,USB A to USB C for Carplay </p>
+            <a class="box6_anchor">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Product 7 -->
+    <div class="shop_section_box7 box">
+        <div class="box7_content">
+            
+            <div class="box7_img"></div>
+            <p class="product-description"> USB C Cable Fast Charging, 2Pack 3ft Coiled USB A to Type C Charge Cord for Car, USB-C Charging Cable Compatible </p>
+            <a class="box7_anchor">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Product 8 -->
+   
+</div>
+<div class="shop_section3">
+    <div class="shop_section_box8 box">
+        <div class="box8_content">
+            <div class="box8_img" ></div>
+            <p class="product-description">Electric Candle Lighter Rechargeable Lighters - Easter Basket Stuffers Plasma Arc Lighters Windproof </p>
+            <a class="box8_anchor">Shop Now</a>
+        </div>
+    </div>
+    <div class="shop_section_box4 box">
+        <div class="box4_content">
+            
+            <div class="box4_img" ></div>
+            <p class="product-description">JBL Tune 720BT - Wireless Over-Ear Headphones with JBL Pure Bass Sound, Bluetooth 5.3</p>
+            <a class="box4_anchor">Shop Now</a>
+        </div>
+    </div>
+     <div class="box extra">
+        <div class="boxExtra_img"></div>
+    </div>
+</div>
+{%endblock%}
