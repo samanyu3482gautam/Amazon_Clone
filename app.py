@@ -1,28 +1,136 @@
 from flask import Flask,render_template,request,flash,session,redirect,url_for
 from datetime import timedelta
+from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
+
+
 
 app=Flask(__name__)
 app.secret_key="amazonclone"
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///users.sqlite3'
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]=False
 app.permanent_session_lifetime=timedelta(minutes=15)
+
+db=SQLAlchemy(app)
+
+class users(db.Model):
+    _id=db.Column("id",db.Integer,primary_key=True)
+    password_hash = db.Column(db.String(128))
+
+    name=db.Column("name",db.String(100))
+    username=db.Column("username",db.String(100))
+    email=db.Column("email",db.String(100))
+    number=db.Column("number",db.String(10))
+    address=db.Column("address",db.String(100))
+    pin=db.Column("pin",db.String(10))
+
+    def __init__(self,name,email,username,number,address,pin,password):
+        self.name=name
+        self.email=email
+        self.username=username
+        self.number=number
+        self.address=address
+        self.pin=pin
+        self.password_hash=generate_password_hash(password)
+
+
+
+
+@app.route("/details",methods=["GET","POST"])
+def details():
+    found_user=users.query.filter_by(email=session["email"]).first()
+    if found_user:
+        if request.method=="POST":
+            name=request.form["name"]
+            number=request.form["number"]
+            address=request.form["address"]
+            pin=request.form["pin"]
+            
+            found_user.name=name
+            found_user.number=number
+            found_user.address=address
+            found_user.pin=pin
+            db.session.commit()
+            return render_template("createPass.html")
+        else:
+            return render_template("details.html")  
+
+    else:
+        return render_template("signUp.html")
+
+@app.route("/createPass",methods=["GET","POST"])
+def createPass():
+    email=session.get("email")
+    if not email:
+        return redirect(url_for("signUp"))
+    found_user=users.query.filter_by(email=session["email"]).first()
+    if(not found_user):
+        return redirect(url_for("signUp"))
+    if request.method=="POST":
+        p1=request.form["password1"]
+        p2=request.form["password2"]
+        if p1==p2:
+            found_user.password_hash=generate_password_hash(p1)
+            db.session.commit()
+            return render_template("login.html")
+        else:
+            return render_template("createPass.html")
+    
+    else:
+        return render_template("signUp.html")
+
+    
+    
+
+@app.route("/signUp",methods=["POST","GET"])
+def signUp():
+    if request.method=="POST":
+        new_email=request.form["email"]
+        session["email"]=new_email
+        found_user=users.query.filter_by(email=new_email).first()
+        if found_user:
+            session["email"]=found_user.email
+            # flash("user already exists with this email.")
+            return redirect(url_for("login"))
+
+        else:
+            #if the user do not exists
+            usr=users("",new_email,"","","","","noPass")
+            db.session.add(usr)
+            db.session.commit()
+            return redirect(url_for("details"))
+
+
+    return render_template("signUp.html")
 
 @app.route("/login",methods=["GET","POST"])
 def login():
+    
     if request.method=="POST":
         session.permanent=True
         # flash("Login Successful!")
         email=request.form["email"]
+        if(not email):
+            return render_template("login.html")
         session["email"]=email
+        found_user=users.query.filter_by(email=email).first()
+
+        if(not found_user):
+            return render_template("signUp.html")
         
+       
         if "@" in email:
             lis=email.split("@")
             session["username"]=lis[0]
-        if len(session["username"])>15:
-            session["username"]="Undefined user"
-            return render_template("username.html")
-        
+            found_user.username=session["username"]
+            db.session.commit()
             
-
-
+                
+        if len(session["username"])>15:
+            session["username"]="Undefined user(long username)"
+            found_user.username=""
+            db.session.commit()
+            return render_template("username.html")
         return  render_template("chkPass.html")
     else:
         if "email" in session and "verified" in session and session["verified"]==True:
@@ -33,31 +141,38 @@ def login():
             return render_template("login.html")
 @app.route("/username",methods=["GET","POST"])
 def username():
-    if request.method=="POST" and session["username"]=="Undefined user":
+    if request.method=="POST" and session["username"]=="Undefined user(long username)":
         username=request.form["username"]
+        found_user=users.query.filter_by(email=session["email"]).first()
         if (len(session["username"])>15):
             return redirect(url_for("username"))
         else:
 
             session["username"]=username
+            found_user.username=session["username"]
+            db.session.commit()
             return render_template("chkPass.html")
     else:
         return render_template("chkPass.html")
 
 
         
-@app.route("/verify",methods=["GET","POST"])
+@app.route("/verify",methods=["POST"])
 def verify():
     
     if "email" not in session or "username" not in session:
         return redirect(url_for("logout"))
     else:
         password=request.form["password"]
-        if password=="amazonclone":
+        found_user=users.query.filter_by(email=session["email"]).first()
+        if found_user and check_password_hash(found_user.password_hash, password):
+            
             session["verified"]=True
+            db.session.commit()
             return render_template("home.html")
         else:
-            flash("Wrong Password")
+            # flash("Wrong Password")
+            db.session.commit()
             return render_template("login.html")
     
     
@@ -72,25 +187,28 @@ def verify():
 @app.route("/logout")
 def logout():
     
-    session.pop("verified",None)
-    session.pop("username",None)
-    session.pop("email",None)
+    session.clear()
     return render_template("logout.html")
 
-@app.route("/signUp")
-def signUp():
-    return render_template("signUp.html")
+
+@app.context_processor
+def inject_user():
+    email = session.get("email")
+    user = None
+    if email:
+        user = users.query.filter_by(email=email).first()
+   
+    return dict(user=user)
 
 @app.route("/home")
 def home():
-    if "verified" in session and session["verified"]==True:
+    email=session.get("email")
+    found_user=users.query.filter_by(email=email).first()
+    if "verified" in session and session["verified"]==True and found_user:
         return render_template("home.html")
     else:
         return redirect(url_for("login"))
 
-@app.route("/details")
-def details():
-    return render_template("details.html")
 
 
 
@@ -120,6 +238,12 @@ def stationary():
 def beauty():
     return render_template("beauty1.html")
 
+with app.app_context():
+    db.drop_all()
+    db.create_all()
+
 if __name__=="__main__":
+    
     app.run(debug=True)
     
+
