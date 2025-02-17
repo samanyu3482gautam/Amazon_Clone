@@ -1,0 +1,24 @@
+{% extends 'formBase.html' %}
+{% block title %}Amazon{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/login.css') }}">
+
+{% endblock %}
+{% block image %} <img src="{{url_for('static',filename='Logo.jpg')}}" alt="Logo" id="logo">{% endblock
+%}
+{% block content %}
+<h5><b>Delete Your Amazon Account</b></h5>
+<p>Enter your email </p>
+<form action="{{url_for('login')}}" method="POST">
+    <input type="email" required class="email-box" name="email" placeholder="Enter your email here.">
+    <input type="password" class="email-box" name="password" placeholder="Enter your password">
+    <button class="submit-box">Continue</button>
+   
+</form>
+<a href="{{url_for('signUp')}}"><button class="submit-box">Sign Up</button></a>
+<p id="agree">By agreeing you accept Amazon's <a href="#">conditions of use</a> and the <a href="#">privacy
+        policy.</a></p>
+<hr>
+<p style="font-size: 12px;">Buying for work? <a href="#" style="font-size: 12px;">Shop on Amazon
+        Business</a></p>
+{% endblock %}

@@ -103,6 +103,28 @@ def signUp():
 
     return render_template("signUp.html")
 
+@app.route("/deleteAccount",methods=["GET","POST"])
+def deleteAccount():
+    if request.method=="POST":
+        email=request.form.get("email")
+        password=request.form.get("password")
+        found_user=users.query.filter_by(email=email).first()
+        if found_user:
+            if check_password_hash(found_user.password,password):
+                db.session.delete(found_user)
+                db.session.commit()
+                session.clear()
+                return render_template("login.html")
+            
+            else:
+                return render_template("home.html")
+        else:
+            return render_template("login.html")
+    else:
+        return render_template("deleteAccount.html")
+
+
+
 @app.route("/login",methods=["GET","POST"])
 def login():
     
@@ -133,11 +155,11 @@ def login():
             return render_template("username.html")
         return  render_template("chkPass.html")
     else:
-        if "email" in session and "verified" in session and session["verified"]==True:
+        # if "email" in session and "verified" in session and session["verified"]==True:
             
-            # flash("You are already logged In.")
-            return redirect(url_for("home"))  
-        else:
+        #     # flash("You are already logged In.")
+        #     return redirect(url_for("home"))  
+        # else:
             return render_template("login.html")
 @app.route("/username",methods=["GET","POST"])
 def username():
