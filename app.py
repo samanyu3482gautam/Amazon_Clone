@@ -33,6 +33,27 @@ class users(db.Model):
         self.pin=pin
         self.password_hash=generate_password_hash(password)
 
+@app.route("/signUp",methods=["POST","GET"])
+def signUp():
+    if request.method=="POST":
+        new_email=request.form["email"]
+        session["email"]=new_email
+        found_user=users.query.filter_by(email=new_email).first()
+        if found_user:
+            session["email"]=found_user.email
+            flash("user already exists with this email.")
+            return redirect(url_for("login"))
+
+        else:
+            #if the user do not exists
+            usr=users("",new_email,"","","","","noPass")
+            db.session.add(usr)
+            db.session.commit()
+            flash('Enter Your Details Now.')
+            return redirect(url_for("details"))
+
+
+    return render_template("signUp.html")
 
 
 
@@ -51,6 +72,7 @@ def details():
             found_user.address=address
             found_user.pin=pin
             db.session.commit()
+            # flash('Now Create Your Password!')
             return render_template("createPass.html")
         else:
             return render_template("details.html")  
@@ -72,56 +94,13 @@ def createPass():
         if p1==p2:
             found_user.password_hash=generate_password_hash(p1)
             db.session.commit()
-            return render_template("login.html")
+            flash("Account Created Login!")
+            return redirect(url_for('login'))
         else:
             return render_template("createPass.html")
     
     else:
         return render_template("signUp.html")
-
-    
-    
-
-@app.route("/signUp",methods=["POST","GET"])
-def signUp():
-    if request.method=="POST":
-        new_email=request.form["email"]
-        session["email"]=new_email
-        found_user=users.query.filter_by(email=new_email).first()
-        if found_user:
-            session["email"]=found_user.email
-            # flash("user already exists with this email.")
-            return redirect(url_for("login"))
-
-        else:
-            #if the user do not exists
-            usr=users("",new_email,"","","","","noPass")
-            db.session.add(usr)
-            db.session.commit()
-            return redirect(url_for("details"))
-
-
-    return render_template("signUp.html")
-
-@app.route("/deleteAccount",methods=["GET","POST"])
-def deleteAccount():
-    if request.method=="POST":
-        email=request.form.get("email")
-        password=request.form.get("password")
-        found_user=users.query.filter_by(email=email).first()
-        if found_user:
-            if check_password_hash(found_user.password,password):
-                db.session.delete(found_user)
-                db.session.commit()
-                session.clear()
-                return render_template("login.html")
-            
-            else:
-                return render_template("home.html")
-        else:
-            return render_template("login.html")
-    else:
-        return render_template("deleteAccount.html")
 
 
 
@@ -133,12 +112,14 @@ def login():
         # flash("Login Successful!")
         email=request.form["email"]
         if(not email):
+            
             return render_template("login.html")
         session["email"]=email
         found_user=users.query.filter_by(email=email).first()
 
         if(not found_user):
-            return render_template("signUp.html")
+            flash('User Not Found Plz SignUp!')
+            return redirect(url_for('signUp'))
         
        
         if "@" in email:
@@ -152,8 +133,11 @@ def login():
             session["username"]="Undefined user(long username)"
             found_user.username=""
             db.session.commit()
-            return render_template("username.html")
-        return  render_template("chkPass.html")
+            flash('Enter Your Username!')
+            return redirect(url_for('username'))
+        
+        flash('Enter Your Password!')
+        return  redirect(url_for('verify'))
     else:
         # if "email" in session and "verified" in session and session["verified"]==True:
             
@@ -161,42 +145,113 @@ def login():
         #     return redirect(url_for("home"))  
         # else:
             return render_template("login.html")
+
+
+    
+    
+
+
+@app.route("/deleteAccount",methods=["GET","POST"])
+def deleteAccount():
+    if request.method=="POST":
+        email=request.form.get("email")
+        password=request.form.get("password")
+        found_user=users.query.filter_by(email=email).first()
+        if found_user:
+            if check_password_hash(found_user.password,password):
+                db.session.delete(found_user)
+                db.session.commit()
+                session.clear()
+                # flash('Account Deleted','success')
+                return redirect(url_for('login'))
+            
+            else:
+                # flash('Enter Correct Password','error')
+                return render_template("deleteAccount.html")
+        else:
+            # flash('User Not Found','error')
+            return redirect(url_for('login'))
+    else:
+        return render_template("deleteAccount.html")
+
+# @app.route("/deleteAccount", methods=["GET", "POST"])
+# def deleteAccount():
+#     if request.method == "POST":
+#         email = request.form.get("email")
+#         password = request.form.get("password")
+        
+        
+#         found_user = users.query.filter_by(email=email).first()
+
+#         if found_user:
+           
+#             if check_password_hash(found_user.password, password):
+              
+#                 db.session.delete(found_user)
+#                 db.session.commit()
+
+                
+#                 session.clear()
+
+#                 flash('Account successfully deleted.', 'success')
+
+                
+#                 return redirect(url_for('login'))
+#             else:
+                
+#                 flash('Incorrect password. Please try again.', 'error')
+#                 return render_template("deleteAccount.html")
+#         else:
+            
+#             # flash('No user found with that email.', 'error')
+#             return redirect(url_for('login'))
+#     else:
+       
+#         return render_template("deleteAccount.html")
+
 @app.route("/username",methods=["GET","POST"])
 def username():
     if request.method=="POST" and session["username"]=="Undefined user(long username)":
         username=request.form["username"]
         found_user=users.query.filter_by(email=session["email"]).first()
         if (len(session["username"])>15):
+            flash('Enter Username Within 15 Characters')
             return redirect(url_for("username"))
         else:
 
             session["username"]=username
             found_user.username=session["username"]
             db.session.commit()
-            return render_template("chkPass.html")
+            flash('Enter Your Password')
+            return redirect(url_for('verify'))
     else:
         return render_template("chkPass.html")
 
 
         
-@app.route("/verify",methods=["POST"])
+@app.route("/verify",methods=["GET","POST"])
 def verify():
+    if request.method=="POST":
     
-    if "email" not in session or "username" not in session:
-        return redirect(url_for("logout"))
-    else:
-        password=request.form["password"]
-        found_user=users.query.filter_by(email=session["email"]).first()
-        if found_user and check_password_hash(found_user.password_hash, password):
-            
-            session["verified"]=True
-            db.session.commit()
-            return render_template("home.html")
+        if "email" not in session or "username" not in session:
+            flash('You Have Been Logged Out!')
+            return redirect(url_for("logout"))
         else:
-            # flash("Wrong Password")
-            db.session.commit()
-            return render_template("login.html")
-    
+            password=request.form["password"]
+            found_user=users.query.filter_by(email=session["email"]).first()
+            if found_user and check_password_hash(found_user.password_hash, password):
+            
+                session["verified"]=True
+                db.session.commit()
+                return render_template("home.html")
+            else:
+                # flash("Wrong Password")
+                db.session.commit()
+                flash('Enter Correct Password')
+                return redirect(url_for('login'))
+    else:
+        return render_template("chkPass.html")
+        
     
    
 

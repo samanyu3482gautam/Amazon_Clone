@@ -4,6 +4,19 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='/css/login.css') }}">
 
 {% endblock %}
+{% block messages %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    <ul style="height: 35px; width: 30%; border: 1px solid #007bff; border-radius: 15px; background-color: #e7f1ff; padding: 5px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+        {% for category, message in messages %}
+            <li class="{{ category }}" style="color: #333; font-size: 14px; font-family: 'Arial', sans-serif; display: flex; align-items: center;">
+                <span style="margin-right: 10px; font-weight: bold; color: #007bff;">Alert:</span>{{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endwith %}
+{% endblock %}
 {% block image %} <img src="{{url_for('static',filename='Logo.jpg')}}" alt="Logo" id="logo">{% endblock
 %}
 {% block content %}

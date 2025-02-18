@@ -17,11 +17,14 @@
 </head>
 
 <body class="body">
+    <div class="flash container-fluid">{% block messages %}
+        {% endblock %}</div>
     <div class="container-fluid outer-Container">
         <div class="logo">
             <!-- <img src="/myProject/static/loginPageAmazonLogo.png" alt="Logo" id="logo"> -->
              {% block image %}{% endblock %}
         </div>
+        
         <div class="container login-form">
             {% block content %}
             <h5><b>Sign Up</b></h5>
@@ -40,7 +43,7 @@
         </div>
 
     </div>
-    <div>{% block messages %}{% endblock %}</div>
+    
     <hr>
     <div class="container last-box">
         <div class="message"><a href="#" style="margin-right: 10px;"> Conditions of use </a> <a href="#"
